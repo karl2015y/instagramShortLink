@@ -1,5 +1,5 @@
 <template>
-  即將前往...<a :href="gotolink">{{ gotolink }}</a>
+  <a :href="gotolink">即將前往...</a>
   <br />
   這裡可以放廣告
 </template>
