@@ -5,12 +5,18 @@
 
   <button @click="generateLinkHandler()">生成連結</button>
   <br />
-  <a v-if="generate_link_show" :href="generate_link">
-    {{ generate_link }}
-  </a>
+  <div v-show="generate_link_show">
+    <canvas style="display: none" id="canvas" />
+    <img src="" alt="" id="image" />
+    <br />
+    <a :href="generate_link">
+      {{ generate_link }}
+    </a>
+  </div>
 </template>
 <script>
 import { computed, ref } from "vue";
+import QrCodeWithLogo from "qrcode-with-logos";
 
 export default {
   setup() {
@@ -34,6 +40,20 @@ export default {
     });
     const generateLinkHandler = () => {
       generate_link_show.value = true;
+      const log = new QrCodeWithLogo({
+        canvas: document.getElementById("canvas"),
+        content: "https://github.com/zxpsuper",
+        width: 380,
+        // download: true,
+        image: document.getElementById("image"),
+        logo: {
+          src: "/ig.png",
+        },
+      })
+        .toImage()
+        .then((item) => {
+          console.log(item);
+        });
     };
 
     return {

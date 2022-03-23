@@ -1,8 +1,7 @@
 <template>
-  gogo {{ os }}
+  即將前往...<a :href="gotolink">{{ gotolink }}</a>
   <br />
-
-  <a :href="gotolink">{{ gotolink }}</a>
+  這裡可以放廣告
 </template>
 
 
