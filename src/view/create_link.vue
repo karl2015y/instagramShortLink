@@ -42,7 +42,7 @@ export default {
       generate_link_show.value = true;
       const log = new QrCodeWithLogo({
         canvas: document.getElementById("canvas"),
-        content: "https://github.com/zxpsuper",
+        content: generate_link.value,
         width: 380,
         // download: true,
         image: document.getElementById("image"),
