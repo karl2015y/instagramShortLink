@@ -14,9 +14,9 @@
     </a>
   </div>
 </template>
+
 <script>
-import { computed, ref } from "vue";
-import QrCodeWithLogo from "qrcode-with-logos";
+import { computed, onMounted, ref } from "vue";
 
 export default {
   setup() {
@@ -55,6 +55,13 @@ export default {
           console.log(item);
         });
     };
+
+    onMounted(() => {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "/qrcode-with-logo.min.js";
+      document.head.appendChild(script);
+    });
 
     return {
       link,
